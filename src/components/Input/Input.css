@@ -1,0 +1,33 @@
+label.Input {
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 5px 3px;
+}
+
+label.Input-horiztional {
+flex-direction: row;
+justify-content: space-between;
+}
+
+label.Input > span {
+  display: block;
+  font-size: 1.5rem;
+  flex: 1;
+}
+
+label.Input > input {
+  height: 2rem;
+  outline: none;
+  border: 3px solid transparent;
+  border-bottom: 3px solid rgba(37,94,200,0.8);
+  flex: 1;
+  font-size: 1.2rem;
+}
+
+label.Input > input:focus {
+  border: 3px solid transparent;
+  border-bottom: 3px solid rgba(44, 113, 240, 0.8);
+}

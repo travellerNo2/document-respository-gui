@@ -1,0 +1,16 @@
+button.Button {
+  margin: 3px auto;
+  padding: 5px 20px;
+  outline: none;
+  border: 3px solid #156fed;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #156fed;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+button.full-width {
+  width: 100%;
+}
