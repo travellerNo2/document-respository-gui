@@ -1,10 +1,8 @@
 // webpack.config.base.js
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { DefinePlugin, HotModuleReplacementPlugin } = require('webpack');
 
 /**
  * @type {import('webpack').Configuration}
@@ -12,7 +10,7 @@ const { DefinePlugin, HotModuleReplacementPlugin } = require('webpack');
 
 module.exports = {
   entry: {
-    app: './src/index.tsx',
+    app: './src/index.jsx',
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -21,10 +19,9 @@ module.exports = {
   module: {
     rules: [
       { test: /\.(js|jsx)$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.(ts|tsx)$/, loader: 'ts-loader', exclude: /node_modules/ },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: ['style-loader', 'css-loader'],
       },
 
       {
@@ -35,13 +32,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@src': path.resolve(__dirname, '../src/'),
-      '@assets': path.resolve(__dirname, '../src/assets/'),
-      '@components': path.resolve(__dirname, '../src/components/'),
-      '@views': path.resolve(__dirname, '../src/views/'),
-      '@api': path.resolve(__dirname, '../src/request/api/'),
+      src: path.resolve(__dirname, '../src/'),
     },
-    extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new HtmlWebpackPlugin({
