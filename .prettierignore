@@ -1,0 +1,8 @@
+/node_modules
+/dist
+.vscode
+.prettierignore
+.editorconfig
+package.json
+*.lock
+yarn-error.log
