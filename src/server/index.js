@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const server = axios.create({
-  baseURL: 'http://1.116.165.46:3000',
+  baseURL: 'http://1.116.165.46:8080',
 });
 
 server.interceptors.response.use(
@@ -9,7 +9,7 @@ server.interceptors.response.use(
     return response;
   },
   (error) => {
-    console.log(error);
+    throw error;
   }
 );
 

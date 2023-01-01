@@ -1,0 +1,22 @@
+form.file-upload {
+  position: fixed;
+  bottom:2rem;
+  right: 2rem;
+  width: 20vw;
+  height: 10vh;
+  margin: 5px;
+  padding: 10px 10px 5px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px 1px rgba(16,16,16,0.6);
+  font-size: 20px;
+}
+
+input#file-uploader {
+  margin-left: 5px;
+  /* border: 1px solid black; */
+}
