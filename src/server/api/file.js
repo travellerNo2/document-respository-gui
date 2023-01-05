@@ -7,9 +7,11 @@ export const fileDownload = (fileId, userId) =>
   server.get(`/file/${userId}/download/${fileId}`);
 
 /**
- * [
+ * {
+ * files:[
  *   {fileId:string, fileName:string}
  * ]
+ * }
  */
 export const getFilesBaseInfoByUserId = (userId) =>
   server.get(`file/${userId}/info`);

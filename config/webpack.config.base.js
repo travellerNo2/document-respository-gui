@@ -33,6 +33,7 @@ module.exports = {
   resolve: {
     alias: {
       src: path.resolve(__dirname, '../src/'),
+      mock: path.resolve(__dirname, '../mock'),
     },
     extensions: ['.js', '.jsx'],
   },
