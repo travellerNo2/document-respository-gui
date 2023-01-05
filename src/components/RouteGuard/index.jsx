@@ -5,6 +5,5 @@ import { getUser } from 'src/store/user';
 
 export default function RouteGuard({ children: Children }) {
   const user = useSelector(getUser);
-  console.log(user);
   return user.userId !== undefined ? Children : <Navigate replace to="/" />;
 }
