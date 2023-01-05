@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
 import Input from 'src/components/Input/Input';
 import Button from 'src/components/Button/Button';
-import { login } from 'src/server/api/login';
+import { login } from 'src/server/api/user';
+import { setUser } from 'src/store/user';
 import './Login.css';
 
 const NIGHT_TIME = 22;
@@ -34,7 +37,7 @@ const Time = () => {
   }, []);
 
   return (
-    <article className={`time ${hour > NIGHT_TIME ? 'night' : ''}`}>
+    <article className={`time ${hour >= NIGHT_TIME ? 'night' : ''}`}>
       {hour}:{min}:{second}
     </article>
   );
@@ -44,6 +47,8 @@ export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [nowHour, setNowHour] = useState('');
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setNowHour(new Date().getHours());
@@ -51,14 +56,26 @@ export default function Login() {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const response = await login(username, password);
-    console.log(response);
+    try {
+      const { data } = await login(username, password);
+      dispatch(
+        setUser({
+          userId: data.user_id,
+          username: data.username,
+          role: data.role,
+        })
+      );
+      alert('login successfully');
+      navigate('/file');
+    } catch (err) {
+      alert(err);
+    }
   };
 
   return (
-    <div className={`login-container ${nowHour > NIGHT_TIME ? 'night' : ''}`}>
+    <div className={`login-container ${nowHour >= NIGHT_TIME ? 'night' : ''}`}>
       <Time />
-      <form className={`login-form ${nowHour > NIGHT_TIME ? 'night' : ''}`}>
+      <form className={`login-form ${nowHour >= NIGHT_TIME ? 'night' : ''}`}>
         <div>
           <Input
             name="username"

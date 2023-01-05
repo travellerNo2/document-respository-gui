@@ -1,0 +1,26 @@
+article.not-found {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.not-found > h1 {
+  font-size: 3rem;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.not-found > p {
+  width: fit-content;
+  margin: 0 auto;
+  border-bottom: 1px solid #1676ff;
+  color: #1676ff;
+  font-family: 'Times New Roman', Times, serif;
+  cursor: pointer;
+}
+
+.not-found > p:hover {
+  color: #1d7afc;
+  border-bottom: 1px solid #1d7afc;
+}
