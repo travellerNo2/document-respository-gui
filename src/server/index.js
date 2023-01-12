@@ -9,7 +9,7 @@ server.interceptors.response.use(
     return response;
   },
   (error) => {
-    throw error;
+    throw error.response?.data ?? { details: error.message };
   }
 );
 
